@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 *.pyc
 *.cache
 *.sublime-project
 *.DS_Store
-=======
+
 *.cache
 *.sublime-project
 *.DS_Store
@@ -43,4 +42,3 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
->>>>>>> e145528452a33a685e03845db4473f21248bd78c

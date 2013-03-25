@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
 Browser Support Sublime2 plugin
 ===============================
 
->>>>>>> e145528452a33a685e03845db4473f21248bd78c
 Overview
 ========
 
@@ -25,10 +22,7 @@ Usage
 =====
 
 Select exact search term or place your cursor over a search term and use the shortcut to get information.
-<<<<<<< HEAD
-=======
 
->>>>>>> e145528452a33a685e03845db4473f21248bd78c
 Default shortcut is: cmd + shift + c
 
 
