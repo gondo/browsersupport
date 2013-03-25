@@ -2,6 +2,7 @@
 *.cache
 *.sublime-project
 *.DS_Store
+package-metadata.json
 
 *.cache
 *.sublime-project
