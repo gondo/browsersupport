@@ -13,6 +13,7 @@ class BrowserSupportCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         sel = self.view.sel()[0]
 
+        # TODO: add logic to check if scope is multiline and if so, detect cursor on current line
         if sel.empty():
             pointer = sel.begin()
             scope = self.view.extract_scope(pointer)            
@@ -45,18 +46,18 @@ class BrowserSupportCommand(sublime_plugin.TextCommand):
         else:
             self.view.erase_status(__name__)
             if (thread.result):
-                self.parse_result(thread.result)
+                self.parse_result(thread.result, thread.search)
             if (thread.err):
                 sublime.error_message(thread.err)
 
 
 
-    def parse_result(self, result):
+    def parse_result(self, result, search):
         soup = BeautifulSoup(result)
         table = soup.find('table', {'class': 'main'})
 
         if table is None:
-            sublime.error_message(__name__ + ': Result not parsed. Multiple results occurred.')
+            sublime.error_message('%s: Result not parsed. Multiple results occurred while searching for "%s"' % (__name__, search))
             return
 
         browsers = []
@@ -121,7 +122,7 @@ class BrowserSupportApiCall(threading.Thread):
 
         except (urllib2.HTTPError) as (e):
             # err = '%s: HTTP error: %s' % (__name__, str(e.code))
-            err = '%s: Unknown search term' % (__name__)
+            err = '%s: No info for %s' % (__name__, self.search)
         except (urllib2.URLError) as (e):
             err = '%s: URL error: %s' % (__name__, str(e.reason))
 
