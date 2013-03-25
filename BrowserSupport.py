@@ -120,7 +120,8 @@ class BrowserSupportApiCall(threading.Thread):
             return
 
         except (urllib2.HTTPError) as (e):
-            err = '%s: HTTP error: %s' % (__name__, str(e.code))
+            # err = '%s: HTTP error: %s' % (__name__, str(e.code))
+            err = '%s: Unknown search term' % (__name__)
         except (urllib2.URLError) as (e):
             err = '%s: URL error: %s' % (__name__, str(e.reason))
 
